@@ -1,0 +1,39 @@
+<h3>Rasp 3</h3>
+
+  <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="panel panel-success">
+            <div class="panel-heading">Raspberry Led</div>
+            <br>
+              <div class="panel-body">
+                <div class="form-check">
+
+                  {{#each model as |led|}}
+                  <input type="checkbox"
+                     id={{led.id}}
+                     checked={{led.valor}}
+                     {{action "save" led on="change"}}/>
+                    {{!-- {{input type="checkbox" class="form-check-input" id=led.nombre checked=led.valor focus-in=(action 'save')}} --}}
+                    <label class="form-check-label" for={{led.id}}>{{led.nombre}}</label> <a href="#" {{action 'borrar' led}}>Borrar</a><br>
+                    {{else}}
+                    Aun no hay leds
+                  {{/each}}
+               </div>
+            </div>
+          </div>
+
+          <div  class="col-md-6 col-md-offset-3">
+            <br>
+            <br>
+            <h4>Crear nuevo controlador</h4>
+            {{input type="text" value=nombre placeholder='Identificador'}}
+            <button {{action 'nuevoLed' nombre}}>Agregar</button>
+
+          </div>
+      </div>
+
+
+    </div>
+  </div>
